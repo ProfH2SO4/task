@@ -1,6 +1,4 @@
-
-
-import compress as compress
+import compress
 import os
 import unittest
 import gzip
@@ -84,10 +82,12 @@ class TestCompress(unittest.TestCase):
         path_to_dir = path + "/test_files"
         create_file(path_to_file)
         compress.gzip_logs(path_to_dir, True)  # True to simulate -d parser
-        create_no_delete(path_to_dir + "/no_delete.txt")
+        create_no_delete(path_to_dir + "/no_delete.txt")  # creates file which should not be deleted(cuz not .log)
+
         self.assertTrue(True, check_if_log_deleted(path_to_dir))
 
         remove_content_in_dir(path_to_dir)  # delete content in test/files
+
 
 if __name__ == "__main__":
     unittest.main()
