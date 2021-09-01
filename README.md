@@ -29,10 +29,10 @@ Ak nebol upgradnuty <br>
 pip install python-crontab --upgrade <br>
 ak root tak (sudo pip install python-crontab --upgrade) <br>
 
-Run:
-service cron status
-ak by bol neaktivny tak
-service cron start
+Run: <br>
+service cron status <br>
+ak by bol neaktivny tak <br>
+service cron start <br>
 
 ############################### <br>
 Moznost 1 ################ <br>
@@ -53,9 +53,9 @@ tak treba nainstelovat python-crontab a nie crontab
 Moznost 2 ################ <br>
 ############################### <br>
 
-sudo crontab -e a na spodok dopisat
+sudo crontab -e a na spodok dopisat <br>
 pozn. kazdych 30 dni 0 5 */30 * * <br>
-<u>0 5 */30 * * /usr/bin/python3 path/compress.py </u>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py </u> <br>
 alebo s prepinacom  <br>
 <u>0 5 */30 * * /usr/bin/python3 path/compress.py -d </u>
 
