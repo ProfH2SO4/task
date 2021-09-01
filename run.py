@@ -21,7 +21,7 @@ def run_crontab():
     else:
         job = cron.new(command=f'/usr/bin/python3 {path_to_file}')
 
-    job.setall('0 0 1 * *')
+    job.setall('0 0 1 * *')  # set every month
 
     cron.write()
 
