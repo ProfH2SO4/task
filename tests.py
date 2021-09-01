@@ -90,4 +90,10 @@ class TestCompress(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    path: str = os.path.abspath(os.getcwd())
+    try:
+        os.mkdir(path + "/test_files")
+    except FileExistsError:
+        print("File was already created")
+
     unittest.main()
