@@ -10,11 +10,11 @@ složce /var/log a zkomprimujeme
 je do gzip souborů.
 
 <h3>#Co implementacia dokaze </h3><br>
-1.Ak by cesta /var/log (po pripade ina cesta) 
-neexistovala skonci proces a vypise uzivatelovi
-2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic
-3. Ak uzivatel zada prepinac -d, tak ten povodny vymaze 
-1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz
+1.Ak by cesta /var/log (po pripade ina cesta) <br>
+neexistovala skonci proces a vypise uzivatelovi <br>
+2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic <br>
+3. Ak uzivatel zada prepinac -d, tak ten povodny vymaze  <br>
+1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz <br>
 
    
 <h3>#Pozor</h3><br>
