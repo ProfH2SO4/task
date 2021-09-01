@@ -54,10 +54,10 @@ Moznost 2 ################ <br>
 ############################### <br>
 
 sudo crontab -e a na spodok dopisat
-pozn. @monthly nie je standard,  ak standard tak  0 0 1 * * <br>
-<u>@monthly /usr/bin/python3 path/compress.py </u>
+pozn. kazdych 30 dni 0 5 */30 * * <br>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py </u>
 alebo s prepinacom  <br>
-<u> @monthly /usr/bin/python3 path/compress.py -d </u>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py -d </u>
 
 Po zadani prikazu sudo crontab -l by malo vidiet ze bezi job 
 Pre vypnutie cron jobu staci zakomentovat
