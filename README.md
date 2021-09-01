@@ -9,7 +9,7 @@ každých 30 dní vezme soubory ve
 složce /var/log a zkomprimujeme 
 je do gzip souborů.
 
-#Co implementacia dokaze
+#Co implementacia dokaze <br>
 1.Ak by cesta /var/log (po pripade ina cesta) 
 neexistovala skonci proces a vypise uzivatelovi
 2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic
