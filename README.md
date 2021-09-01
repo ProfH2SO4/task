@@ -9,7 +9,7 @@ každých 30 dní vezme soubory ve
 složce /var/log a zkomprimujeme 
 je do gzip souborů.
 
-#Co implementacia dokaze <br>
+<h3>#Co implementacia dokaze </h3><br>
 1.Ak by cesta /var/log (po pripade ina cesta) 
 neexistovala skonci proces a vypise uzivatelovi
 2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic
@@ -17,11 +17,11 @@ neexistovala skonci proces a vypise uzivatelovi
 1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz
 
    
-#Pozor <br>
+#<h3> Pozor </h3><br>
 prava do /var/log ma su(super user) alebo uzivatelia, 
 ktory dostali tieto prava od su
 
-#Run <br>
+#<h3>Run </h3> <br>
 V pripade ak nebol crontab pouzivany
 pip install python-crontab
 ak root tak (sudo pip install python-crontab)
