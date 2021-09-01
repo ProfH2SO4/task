@@ -1,4 +1,5 @@
 import os
+from os import path
 import gzip
 import sys
 
@@ -11,8 +12,15 @@ def check_switcher_to_delete() -> bool:  # return True, if line argument was -d
     return False
 
 
-def gzip_logs(delete_file: bool = False):
-    path_to_dir: str = "/var/skus"
+def check_if_path_exists(path_to_dir: str):
+    return path.exists(path_to_dir)
+
+
+def gzip_logs(path_to_dir: str, delete_file: bool = False):
+    if not check_if_path_exists(path_to_dir):
+        print("Path do not exists")
+        return
+
     if len(os.listdir(path_to_dir)) == 0:  # if directory is empty
         print("Directory is empty, Nothing to compress.")
         return
@@ -25,35 +33,17 @@ def gzip_logs(delete_file: bool = False):
         if len(file.name) < 4 or str(file.name)[-4:] != ".log":  # if ending different from .log
             continue
 
-        print("Path to dir:", path_to_dir)
-
         try:
             with open(file.path, "rb") as file_in:
                 with gzip.open(file.path + ".gz", "wb") as file_out:
-                    print("File name", file.name)
                     file_out.writelines(file_in)
 
-            print(file.path)
             if delete_file:  # if switcher -d
                 os.remove(file.path)
 
-        except OSError:
-            print(OSError)
-            return
+        except (OSError, MemoryError) as err:
+            raise err
 
-        except MemoryError:
-            print(MemoryError)
-            return
 
-def unzip_dir():
-    for file in os.scandir(os.getcwd()):
-
-        if str(file.name)[-3:] == ".gz":
-            file_out = open(file.name[:-3], "w")
-            with gzip.open(file.path, "rb") as file_in:
-                    file_out.write(file_in.read().decode("utf-8"))
-
-            file_out.close()
-
-gzip_logs()
-#unzip_dir()
+if __name__ == "__main__":
+    gzip_logs("/var/log")
