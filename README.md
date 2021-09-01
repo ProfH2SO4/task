@@ -22,12 +22,12 @@ prava do /var/log ma su(super user) alebo uzivatelia,
 ktory dostali tieto prava od su
 
 <h3>#Run </h3> <br>
-V pripade ak nebol crontab pouzivany
-pip install python-crontab
-ak root tak (sudo pip install python-crontab)
-Ak nebol upgradnuty
-pip install python-crontab --upgrade
-ak root tak (sudo pip install python-crontab --upgrade)
+V pripade ak nebol crontab pouzivany <br>
+pip install python-crontab <br>
+ak root tak (sudo pip install python-crontab) <br>
+Ak nebol upgradnuty <br>
+pip install python-crontab --upgrade <br>
+ak root tak (sudo pip install python-crontab --upgrade) <br>
 
 Run:
 service cron status
@@ -38,11 +38,13 @@ service cron start
 Moznost 1 ################ <br>
 ############################### <br>
         
-Pre spustenie vsetkeho(cron job + gzip) staci spustit: sudo python3 ./run.py
-ak  aj deletovat tak sudo python3 ./run.py -d
+Pre spustenie vsetkeho(cron job + gzip) staci spustit: <br>
+sudo python3 ./run.py
+ak  aj deletovat tak  <br>
+sudo python3 ./run.py -d
 
 Po pripade ak by spustenie vyhodilo 
-TypeError: __init__() takes exactly 2 arguments alebo 
+TypeError: __init__() takes exactly 2 arguments alebo <br> 
 ValueError: improper number of cron entries specified; got 1 need 5 to 7
 tak treba nainstelovat python-crontab a nie crontab
 
@@ -52,9 +54,9 @@ Moznost 2 ################ <br>
 ############################### <br>
 
 sudo crontab -e a na spodok dopisat
-pozn. @monthly nie je standard,  ak standard tak  0 0 1 * *
+pozn. @monthly nie je standard,  ak standard tak  0 0 1 * * <br>
 <u>@monthly /usr/bin/python3 path/compress.py </u>
-alebo s prepinacom 
+alebo s prepinacom  <br>
 <u> @monthly /usr/bin/python3 path/compress.py -d </u>
 
 Po zadani prikazu sudo crontab -l by malo vidiet ze bezi job 
