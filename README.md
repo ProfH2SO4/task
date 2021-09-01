@@ -1,6 +1,6 @@
 # task
 
-#TODO
+<h2>#TODO</h2><br>
 
 vytvor script, který bude automaticky spouštěn jako linuxový cron job.
 K němu připojte README s popisem projektu a příkladem použití a testy.
@@ -17,11 +17,11 @@ neexistovala skonci proces a vypise uzivatelovi
 1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz
 
    
-#Pozor
+#Pozor <br>
 prava do /var/log ma su(super user) alebo uzivatelia, 
 ktory dostali tieto prava od su
 
-#Run
+#Run <br>
 V pripade ak nebol crontab pouzivany
 pip install python-crontab
 ak root tak (sudo pip install python-crontab)
