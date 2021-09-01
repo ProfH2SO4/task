@@ -17,11 +17,11 @@ neexistovala skonci proces a vypise uzivatelovi
 1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz
 
    
-#<h3> Pozor </h3><br>
+<h3>#Pozor</h3><br>
 prava do /var/log ma su(super user) alebo uzivatelia, 
 ktory dostali tieto prava od su
 
-#<h3>Run </h3> <br>
+<h3>#Run </h3> <br>
 V pripade ak nebol crontab pouzivany
 pip install python-crontab
 ak root tak (sudo pip install python-crontab)
@@ -34,12 +34,12 @@ service cron status
 ak by bol neaktivny tak
 service cron start
 
-###############################
-Moznost 1 ################
-###############################
+############################### <br>
+Moznost 1 ################ <br>
+############################### <br>
         
 Pre spustenie vsetkeho(cron job + gzip) staci spustit: sudo python3 ./run.py
-ak by som chcel aj deletovat tak sudo python3 ./run.py -d
+ak  aj deletovat tak sudo python3 ./run.py -d
 
 Po pripade ak by spustenie vyhodilo 
 TypeError: __init__() takes exactly 2 arguments alebo 
@@ -47,18 +47,18 @@ ValueError: improper number of cron entries specified; got 1 need 5 to 7
 tak treba nainstelovat python-crontab a nie crontab
 
 
-###############################
-Moznost 2 ################
-###############################
+############################### <br>
+Moznost 2 ################ <br>
+############################### <br>
 
 sudo crontab -e a na spodok dopisat
 pozn. @monthly nie je standard,  ak standard tak  0 0 1 * *
-@monthly /usr/bin/python3 path/compress.py
+<u>@monthly /usr/bin/python3 path/compress.py </u>
 alebo s prepinacom 
-@monthly /usr/bin/python3 path/compress.py -d
+<u> @monthly /usr/bin/python3 path/compress.py -d </u>
 
 Po zadani prikazu sudo crontab -l by malo vidiet ze bezi job 
 Pre vypnutie cron jobu staci zakomentovat
-#########################################
+######################################### <br>
 
 Pre spustenie testov: python3 ./tests.py
