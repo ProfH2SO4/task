@@ -1,8 +1,10 @@
 import compress
+from compress import gzip_logs
 import os
 import unittest
 import gzip
 import filecmp
+from click.testing import CliRunner
 
 
 # creates .log file
@@ -66,7 +68,11 @@ class TestCompress(unittest.TestCase):
         path_to_file = path + "/test_files/1.log"
         path_to_dir = path + "/test_files"
         create_file(path_to_file)
-        compress.gzip_logs(path_to_dir)
+
+        runner = CliRunner()
+        result = runner.invoke(gzip_logs, ['--path', path_to_dir]) # simulate line arguments
+        assert result.exit_code == 0
+
 
         unzip_dir(path_to_dir)
         two_files_values: bool = filecmp.cmp(path_to_file, path_to_dir + "/unziped1.log")
@@ -81,7 +87,11 @@ class TestCompress(unittest.TestCase):
         path_to_file = path + "/test_files/1.log"
         path_to_dir = path + "/test_files"
         create_file(path_to_file)
-        compress.gzip_logs(path_to_dir, True)  # True to simulate -d parser
+
+        runner = CliRunner()
+        result = runner.invoke(gzip_logs, ['--path', path_to_dir, '--d'])
+        assert result.exit_code == 0
+
         create_no_delete(path_to_dir + "/no_delete.txt")  # creates file which should not be deleted(cuz not .log)
 
         self.assertTrue(True, check_if_log_deleted(path_to_dir))
