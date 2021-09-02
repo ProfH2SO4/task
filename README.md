@@ -13,7 +13,8 @@ je do gzip souborů.
 1.Ak by cesta /var/log (po pripade ina cesta) <br>
 neexistovala skonci proces a vypise uzivatelovi <br>
 2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic <br>
-3. Ak uzivatel zada prepinac --d, tak ten povodny vymaze  <br>
+3. Ako povinny line argument --path <path_to_directory>
+4. Ak uzivatel zada prepinac --d, tak ten povodny vymaze  <br>
 1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz <br>
 
    
@@ -39,9 +40,9 @@ Moznost 1 ################ <br>
 ############################### <br>
 Pre vysvetlenie line argumentov python3 ./run.py -- help <br>         
 Pre spustenie vsetkeho(cron job + gzip) staci spustit: <br>
-sudo python3 ./run.py --path [path] <br>
+sudo python3 ./run.py --path <path_to_directory> <br>
 ak  aj deletovat tak  <br>
-sudo python3 ./run.py --path [path] --d <br>
+sudo python3 ./run.py --path <path_to_directory> --d <br>
 
 Po pripade ak by spustenie vyhodilo 
 TypeError: __init__() takes exactly 2 arguments alebo <br> 
@@ -55,9 +56,9 @@ Moznost 2 ################ <br>
 
 sudo crontab -e a na spodok dopisat <br>
 pozn. kazdych 30 dni 0 5 */30 * * <br>
-<u>0 5 */30 * * /usr/bin/python3 path/compress.py  --path [path]</u> <br>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py --path <path_to_directory></u> <br>
 alebo s prepinacom  <br>
-<u>0 5 */30 * * /usr/bin/python3 path/compress.py --path [path] --d </u>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py --path <path_to_directory> --d </u><br>
 
 Po zadani prikazu sudo crontab -l by malo vidiet ze bezi job  <br>
 Pre vypnutie cron jobu staci zakomentovat <br>
