@@ -13,7 +13,7 @@ je do gzip souborů.
 1.Ak by cesta /var/log (po pripade ina cesta) <br>
 neexistovala skonci proces a vypise uzivatelovi <br>
 2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic <br>
-3. Ak uzivatel zada prepinac -d, tak ten povodny vymaze  <br>
+3. Ak uzivatel zada prepinac --d, tak ten povodny vymaze  <br>
 1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz <br>
 
    
@@ -37,11 +37,11 @@ service cron start <br>
 ############################### <br>
 Moznost 1 ################ <br>
 ############################### <br>
-        
+Pre vysvetlenie line argumentov python3 ./run.py -- help <br>         
 Pre spustenie vsetkeho(cron job + gzip) staci spustit: <br>
-sudo python3 ./run.py
+sudo python3 ./run.py --path [path] <br>
 ak  aj deletovat tak  <br>
-sudo python3 ./run.py -d
+sudo python3 ./run.py --path [path] --d <br>
 
 Po pripade ak by spustenie vyhodilo 
 TypeError: __init__() takes exactly 2 arguments alebo <br> 
@@ -55,12 +55,12 @@ Moznost 2 ################ <br>
 
 sudo crontab -e a na spodok dopisat <br>
 pozn. kazdych 30 dni 0 5 */30 * * <br>
-<u>0 5 */30 * * /usr/bin/python3 path/compress.py </u> <br>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py  --path [path]</u> <br>
 alebo s prepinacom  <br>
-<u>0 5 */30 * * /usr/bin/python3 path/compress.py -d </u>
+<u>0 5 */30 * * /usr/bin/python3 path/compress.py --path [path] --d </u>
 
-Po zadani prikazu sudo crontab -l by malo vidiet ze bezi job 
-Pre vypnutie cron jobu staci zakomentovat
+Po zadani prikazu sudo crontab -l by malo vidiet ze bezi job  <br>
+Pre vypnutie cron jobu staci zakomentovat <br>
 ######################################### <br>
 
 Pre spustenie testov: python3 ./tests.py
