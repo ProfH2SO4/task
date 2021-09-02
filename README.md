@@ -14,7 +14,7 @@ je do gzip souborů.
 neexistovala skonci proces a vypise uzivatelovi <br>
 2.zkomprimuje subory len s koncovkou .log, s ostatnymi subormi neurobi nic <br>
 3. Ako povinny line argument --path [path_to_directory] <br>
-path_to_directory je slozka, v ktorej sa budu .log files gzipovat <br>
+path_to_directory je cesta k slozke, v ktorej sa budu .log files gzipovat <br>
 4. Ak uzivatel zada prepinac --d, tak ten povodny vymaze  <br>
 1.log => 1.log.gz ###t.j nenastane pripad 1.log => 1.log, 1.log.gz <br>
 
